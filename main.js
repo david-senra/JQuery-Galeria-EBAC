@@ -22,6 +22,12 @@ $(document).ready(function() {
         e.preventDefault();
         const urlImagem = $('#url-imagem').val();
         const novoitem = $('<li style="display: none"></li>')
+        let removebutton = $(`
+            <div class="red-cross">
+                <img src="./images/redcross.png" alt="Cruz para remover imagem"/>
+            </div>)
+        `);
+        removebutton.appendTo(novoitem);
         $(`<img src="${urlImagem}"/>`).appendTo(novoitem);
         $(`
             <div class="overlay-imagem-link">
@@ -30,8 +36,17 @@ $(document).ready(function() {
             </a>
             </div>
         `).appendTo(novoitem);
+        novoitem.attr('onClick', `remove($(this))`);
         novoitem.appendTo($('ul'));
         $(novoitem).fadeIn(1500);
         $('#url-imagem').val('');
     })
+
+    $('.red-cross').click(function () {
+        remove($(this).parent());
+    })
 })
+
+function remove(x){
+    $(x).html('');
+}

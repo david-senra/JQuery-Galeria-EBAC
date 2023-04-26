@@ -13,7 +13,6 @@ header {
     border-bottom: 16px solid #341f97;
     justify-content: center;
     text-transform: uppercase;
-    font-style: italic;
 }
 
 header button {
@@ -85,4 +84,17 @@ ul li img {
 .overlay-imagem-link a {
     color: #fff;
     text-decoration: none;
+}
+
+.red-cross {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 20px;
+}
+
+.red-cross:hover {
+    cursor:pointer;
+    width: 23px;
+    transition: all ease .3s;
 }
